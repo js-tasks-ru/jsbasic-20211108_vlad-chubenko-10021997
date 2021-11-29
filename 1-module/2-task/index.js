@@ -10,15 +10,26 @@ function print(text) {
  * чтобы функция sayHello работала корректно
  */
 function isValid(name) {
-  // ваш код...
+  if (name === null) {
+    return false;
+  }
+
+  const consistsSpaces = name.indexOf(" ") !== -1;
+  const insufficientLength = name.length < 4;
+
+  if (consistsSpaces || insufficientLength) {
+    return false;
+  }
+
+  return true;
 }
 
 function sayHello() {
-  let userName = prompt('Введите ваше имя');
+  let userName = prompt("Введите ваше имя");
 
   if (isValid(userName)) {
     print(`Welcome back, ${userName}!`);
   } else {
-    print('Некорректное имя');
+    print("Некорректное имя");
   }
 }
